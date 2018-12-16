@@ -112,27 +112,41 @@
           </div>
         </section>
         <section class="news">
+          <?php
+          require_once('appvars.php');
+          require_once('connectvars.php');
+
+          $dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+
+          $query = "SELECT * FROM news ORDER BY date ASC";
+          $data = mysqli_query($dbc, $query);
+          ?>
           <h2 class="section-header">Новости</h2>
           <ul class="news__list">
-            <li class="news__item clearfix">
-              <div class="header-title">
-                <h3 class="header-title__title"><a class="header-title__link" href="news-1.html">Заголовок новости</a></h3><time class="header-title__date" datetime="2016-01-11">11 января</time>
-              </div>
-              <img alt="Рисунок новости" class="news__picture" height="123" src="img/news.jpg" width="121">
-              <p class="news__text">Повседневная практика показывает, что консультация с широким активом обеспечивает широкому кругу (специалистов) участие в формировании дальнейших направлений развития. </p><a class="button" href="news-1.html">Читать далее</a>
-            </li>
-            <li class="news__item clearfix">
-              <div class="header-title">
-                <h3 class="header-title__title"><a class="header-title__link" href="news-1.html">Заголовок новости</a></h3><time class="header-title__date" datetime="2016-01-11">11 января</time>
-              </div><img alt="Рисунок новости" class="news__picture" height="123" src="img/news.jpg" width="121">
-              <p class="news__text">Повседневная практика показывает, что консультация с широким активом обеспечивает широкому кругу (специалистов) участие в формировании дальнейших направлений развития.</p><a class="button" href="news-1.html">Читать далее</a>
-            </li>
-            <li class="news__item clearfix">
-              <div class="header-title">
-                <h3 class="header-title__title"><a class="header-title__link" href="news-1.html">Заголовок новости</a></h3><time class="header-title__date" datetime="2016-01-11">11 января</time>
-              </div><img alt="Рисунок новости" class="news__picture" height="123" src="img/news.jpg" width="121">
-              <p class="news__text">Повседневная практика показывает, что консультация с широким активом обеспечивает широкому кругу (специалистов) участие в формировании дальнейших направлений развития.</p><a class="button" href="news-1.html">Читать далее</a>
-            </li>
+            <?php 
+            while ($row = mysqli_fetch_array($data)) {
+              echo '<li class="news__item clearfix">';
+                echo '<div class="header-title">';
+                  echo '<h3 class="header-title__title"><a class="header-title__link" href="news-1.html">' . $row['title'] . '</a></h3><time class="header-title__date" datetime="2016-01-11">' . $row['date'] . '</time>
+                </div>';
+                echo '<img alt="" class="news__picture" height="123" src="' . G_UPLOADPATH . $row['screenshot'] . '" width="121">';
+                echo '<p class="news__text">' . $row['text'] . '</p><a class="button" href="news-1.html">Читать далее</a>
+              </li>';
+            }
+            
+            ?>
+           <!--  <li class="news__item clearfix">
+             <div class="header-title">
+               <h3 class="header-title__title"><a class="header-title__link" href="news-1.html">Заголовок новости</a></h3><time class="header-title__date" datetime="2016-01-11">11 января</time>
+             </div><img alt="Рисунок новости" class="news__picture" height="123" src="img/news.jpg" width="121">
+             <p class="news__text">Повседневная практика показывает, что консультация с широким активом обеспечивает широкому кругу (специалистов) участие в формировании дальнейших направлений развития.</p><a class="button" href="news-1.html">Читать далее</a>
+           </li>
+           <li class="news__item clearfix">
+             <div class="header-title">
+               <h3 class="header-title__title"><a class="header-title__link" href="news-1.html">Заголовок новости</a></h3><time class="header-title__date" datetime="2016-01-11">11 января</time>
+             </div><img alt="Рисунок новости" class="news__picture" height="123" src="img/news.jpg" width="121">
+             <p class="news__text">Повседневная практика показывает, что консультация с широким активом обеспечивает широкому кругу (специалистов) участие в формировании дальнейших направлений развития.</p><a class="button" href="news-1.html">Читать далее</a>
+           </li> -->
           </ul>
           <!-- <ul class="pagination">
             <div class="pagination__wrapper">
