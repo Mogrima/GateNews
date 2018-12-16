@@ -127,7 +127,7 @@
             while ($row = mysqli_fetch_array($data)) {
               echo '<li class="news__item clearfix">';
                 echo '<div class="header-title">';
-                  echo '<h3 class="header-title__title"><a class="header-title__link" href="news-1.html">' . $row['title'] . '</a></h3><time class="header-title__date" datetime="2016-01-11">' . $row['date'] . '</time>
+                  echo '<h3 class="header-title__title"><a class="header-title__link" href="news.php?id=' . $row['id'] .'">' . $row['title'] . '</a></h3><time class="header-title__date" datetime="2016-01-11">' . $row['date'] . '</time>
                 </div>';
                 echo '<img alt="" class="news__picture" height="123" src="' . G_UPLOADPATH . $row['screenshot'] . '" width="121">';
                 echo '<p class="news__text">' . $row['preview'] . '</p><a class="button" href="news-1.html">Читать далее</a>
