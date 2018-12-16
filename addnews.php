@@ -13,12 +13,13 @@
 
 	if(isset($_POST['submit'])) {
 		$title = $_POST['title'];
+		$preview = $_POST['preview'];
 		$text = $_POST['text'];
 		$screenshot = $_FILES['screenshot']['name'];
 		$screenshot_type = $_FILES['screenshot']['type'];
 		$screenshot_size = $_FILES['screenshot']['size'];
 
-		if(!empty($title) && !empty($text) && !empty($screenshot)) {
+		if(!empty($title) && !empty($preview) && !empty($text) && !empty($screenshot)) {
 			if ((($screenshot_type == 'image/gif') ||
 				  ($screenshot_type == 'image/jpeg') ||
 				  ($screenshot_type == 'image/pjpeg') ||
@@ -32,7 +33,7 @@
 					if(move_uploaded_file($_FILES['screenshot']['tmp_name'], $target)) {
 						$dbc = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
-						$query = "INSERT INTO news VALUES (0, NOW(), '$title', '$text', '$screenshot')";
+						$query = "INSERT INTO news VALUES (0, NOW(), '$title', '$preview', '$text', '$screenshot')";
 
 						mysqli_query($dbc, $query);
 
@@ -68,6 +69,8 @@
 		<input type="hidden" name="MAX_FILE_SIZE" value="1000000">
 		<label for="news-title">Название новости</label>
 		<input id="news-title" type="text" name="title" value="<?php if(!empty($title)) echo $title; ?>">
+		<label for="news-preview">Превью новости</label>
+		<input id="news-preview" type="text" name="preview" value="<?php if(!empty($preview)) echo $preview; ?>">
 		<label for="news-text">Текст новости</label>
 		<input id="news-text" type="text" name="text" value="<?php if(!empty($text)) echo $text; ?>">
 		<label for="screenshot">Файл изображения:</label>
