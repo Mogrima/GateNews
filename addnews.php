@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Добавить новость</title>
+	<link rel="stylesheet" href="css/news.css">
 </head>
 <body>
 	<h1>Добавление новости</h1>
@@ -71,14 +72,15 @@
 	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="MAX_FILE_SIZE" value="1000000">
 		<label for="news-title">Название новости</label>
-		<input id="news-title" type="text" name="title" value="<?php if(!empty($title)) echo $title; ?>">
+		<input class="input input__title" id="news-title" type="text" name="title" value="<?php if(!empty($title)) echo $title; ?>">
 		<label for="news-preview">Превью новости</label>
-		<input id="news-preview" type="text" name="preview" value="<?php if(!empty($preview)) echo $preview; ?>">
+		<textarea class="input input__preview" id="news-preview" type="text" name="preview"><?php if(!empty($preview)) echo $preview; ?></textarea>
 		<label for="news-text">Текст новости</label>
-		<input id="news-text" type="text" name="text" value="<?php if(!empty($text)) echo $text; ?>">
+		<textarea class="input input__text" id="news-text" type="text" name="text"><?php if(!empty($text)) echo $text; ?></textarea>
 		<label for="screenshot">Файл изображения:</label>
-		<input id="screenshot" type="file" name="screenshot">
+		<input class="input" id="screenshot" type="file" name="screenshot">
 		<button type="submit" name="submit">Добавить</button>
 	</form>
+	<a href="index.php">на главную</a>
 </body>
 </html>

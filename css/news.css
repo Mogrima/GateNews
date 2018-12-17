@@ -1,0 +1,19 @@
+.input {
+	display: block;
+	box-sizing: border-box;
+	width: 600px;
+	padding: 10px;
+
+	font-family: 'Roboto';
+}
+
+.input__title {
+}
+
+.input__preview {
+	height: 100px;
+}
+
+.input__text {
+	height: 300px;
+}
