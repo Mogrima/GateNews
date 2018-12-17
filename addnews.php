@@ -42,6 +42,7 @@
 						echo '<p><a href="addnews.php">Добавить еще одну новость</a></p>';
 
 						$title = "";
+						$preview = "";
 						$text = "";
 						$screenshot = "";
 
