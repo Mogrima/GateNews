@@ -5,6 +5,15 @@
 	<title>Обзор новостей</title>
 </head>
 <body>
+    <p>
+        <a href="index.php">Перейти на админстративную страницу</a>
+    </p>
+    <p>
+        <a href="gate-main-page.php">Перейти на главную страницу сайта</a>
+    </p>
+    <p>
+        <a href="addnews.php">Добавить новость</a>
+    </p>
 	<?php
 	require_once('appvars.php');
     require_once('connectvars.php');

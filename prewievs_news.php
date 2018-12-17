@@ -5,6 +5,16 @@
 	<title>Обзор новости целиком</title>
 </head>
 <body>
+	<p>
+        <a href="index.php">Перейти на админстративную страницу</a>
+    </p>
+    <p>
+        <a href="gate-main-page.php">Перейти на главную страницу сайта</a>
+    </p>
+    <p><a href="all_list-news.php">Перейти к списку новостей</a></p>
+    <p>
+        <a href="addnews.php">Добавить новость</a>
+    </p>
 	<?php
 	require_once('appvars.php');
     require_once('connectvars.php');
@@ -20,11 +30,11 @@
 
 		while($row = mysqli_fetch_array($news)) {
 			$screenshot = $row['screenshot'];
-			echo '<a href="removenews.php?id=' . $row['id'] . '&amp;screenshot=' . $screenshot . '">Удалить</a>';
 			echo '<h1>' . $row['title'] . '</h1>';
 			echo '<time>' . $row['date'] . '</time>';
 			echo '<p>' . $row['text'] . '</p>';
 			echo '<div><img src="' . G_UPLOADPATH . $row['screenshot'] . '"></div>';
+			echo '<a href="removenews.php?id=' . $row['id'] . '&amp;screenshot=' . $screenshot . '">Удалить</a>';
 		}
 	}
   ?>

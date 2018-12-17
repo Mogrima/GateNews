@@ -38,8 +38,10 @@
 						mysqli_query($dbc, $query);
 
 						echo '<p>Новость ' . '«'. $title . '»' . ' внесена </p>';
-						echo '<p><a href="index.php">Перейти на главную страницу</a></p>';
+						echo '<p><a href="index.php">Перейти на админстративную страницу</a></p>';
+						echo '<p><a href="gate-main-page.php">Перейти на главную страницу сайта</a></p>';
 						echo '<p><a href="addnews.php">Добавить еще одну новость</a></p>';
+						echo '<p><a href="all_list-news.php">Перейти к списку новостей</a></p>';
 
 						$title = "";
 						$preview = "";
