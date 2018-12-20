@@ -21,3 +21,20 @@
 .input__text {
 	height: 300px;
 }
+
+.form-addnews {
+	width: 600px;
+	margin: 0 auto;
+}
+
+.addnews-button {
+	display: block;
+	width: 120px;
+	margin-top: 24px;
+	background-color: transparent;
+	border: none;
+}
+
+.news-added {
+	font-size: 24px;
+}
